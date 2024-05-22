@@ -102,16 +102,17 @@ const existingItem = document.querySelector(`.cart-item[data-id="${id}"]`);
             cartContainer.appendChild(cartItem);
             
               }
+              totalPrice += parseFloat(price);
+              totalItems++;
+              updateTotal();
+              updateAverage();
+              toggleCartVisibility();
         }
         else{
             
             document.getElementById("lastpara").style.display="block";
         }
-        totalPrice += parseFloat(price);
-        totalItems++;
-        updateTotal();
-        updateAverage();
-        toggleCartVisibility();
+      
     }
   function updateTotal() {
         document.querySelector('.total strong').textContent = `Total: $${totalPrice.toFixed(2)}`;
